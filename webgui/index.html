@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filaport</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-top:24px; margin-bottom:8px;">
+      <img src="filaport-icon.png" alt="Filaport Icon" style="height:48px; width:48px; display:inline-block; vertical-align:middle;" />
+      <span style="font-size:2.5rem; font-weight:700; letter-spacing:1px; color:#1976d2; display:inline-block; vertical-align:middle;">Filaport</span>
+    </div>
+    <h3 style="text-align:center;">Convert profiles for compaibility with OrcaSlicer</h3>
+  
+    <form id="convert-form" autocomplete="off" style="margin:0;padding:0;">
+      <div class="card" style="max-width:600px;margin:0 auto 16px auto;padding:20px 24px 16px 24px;box-shadow:0 2px 8px #0001;border-radius:12px;background:#fff;">
+        <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:end;justify-content:space-between;">
+          <div style="flex:1 1 260px;min-width:200px;display:flex;flex-direction:column;">
+            <div id="file-drop-zone" style="width:100%;min-height:100px;padding:24px 0;border:2px dashed #1976d2;border-radius:8px;text-align:center;cursor:pointer;color:#1976d2;background:#f7faff;font-size:1.1em;transition:background 0.2s;">
+              <span id="file-drop-text">Drag & drop INI files here </br> or click to select</span>
+              <input type="file" id="ini-files" name="ini-files" multiple accept=".ini,.json" style="display:none;">
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;flex:0 1 220px;min-width:160px;gap:8px;">
+            <div class="nozzle-size-div">
+              <label for="nozzle-size" style="font-weight:500;">Default Nozzle Size (mm):</label><br>
+              <input type="number" step="0.01" id="nozzle-size" name="nozzle-size" value="0.4" placeholder="0.4" style="width:100%;">
+            </div>
+            <div id="default-physical-printer-zone" class="default-physical-printer-div" style="width:100%;min-height:54px;padding:12px 0;border:2px dashed #43a047;border-radius:8px;text-align:center;cursor:pointer;color:#2e7d32;background:#f3fdf7;font-size:1em;transition:background 0.2s;">
+              <span id="default-physical-printer-text">Physical Printer INI/JSON (optional)</span>
+              <input type="file" id="default-physical-printer-ini" name="default-physical-printer-ini" accept=".ini,.json" style="display:none;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="file-list-card" class="card" style="max-width:600px;margin:0 auto 16px auto;padding:16px 24px 12px 24px;box-shadow:0 2px 8px #0001;border-radius:12px;background:#fff;display:none;">
+        <div id="file-options"></div>
+      </div>
+      <div style="max-width:600px;margin:0 auto 24px auto;text-align:right;">
+        <button type="submit" style="min-width:120px;">Convert</button>
+      </div>
+    </form>
+    <div id="summary" style="margin-top:16px;"></div>
+    <div id="output"></div>
+    <button id="download-all" style="display:none;margin-top:16px;">Download All JSON</button>
+    <div class="meta-note">
+      <span class="meta-note-icon" aria-hidden="true">ℹ️</span>
+      <div class="meta-note-content">
+        <b>After conversion, place each file in the correct OrcaSlicer folder:</b>
+        <div style="margin-top:4px;font-size:0.8em;color:#888;">(You can open these folders from OrcaSlicer: <b>Help &rarr; Open Config Folder</b>)</div>
+        <ul>
+          <li>
+            <b>Print:</b><br>
+            Win: <code>%APPDATA%/OrcaSlicer/user/default/process/</code><br>
+            Linux: <code>~/.config/OrcaSlicer/user/default/process/</code><br>
+            macOS: <code>~/Library/Application Support/OrcaSlicer/user/default/process/</code>
+          </li>
+          <li>
+            <b>Filament:</b><br>
+            Win: <code>%APPDATA%/OrcaSlicer/user/default/filament/</code><br>
+            Linux: <code>~/.config/OrcaSlicer/user/default/filament/</code><br>
+            macOS: <code>~/Library/Application Support/OrcaSlicer/user/default/filament/</code>
+          </li>
+          <li>
+            <b>Printer:</b><br>
+            Win: <code>%APPDATA%/OrcaSlicer/user/default/machine/</code><br>
+            Linux: <code>~/.config/OrcaSlicer/user/default/machine/</code><br>
+            macOS: <code>~/Library/Application Support/OrcaSlicer/user/default/machine/</code>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

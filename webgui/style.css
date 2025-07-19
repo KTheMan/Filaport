@@ -1,0 +1,255 @@
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1.04em;
+  color: #234;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3 {
+  font-family: 'Segoe UI Semibold', Arial, sans-serif;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-top: 0.7em;
+  margin-bottom: 0.3em;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+h1 { font-size: 2.1em; }
+h2 { font-size: 1.45em; }
+h3 { font-size: 1.15em; }
+
+label, .perfile-physical-label, .default-physical-printer-div label {
+  font-size: 1em;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.01em;
+}
+
+code, .meta-note-content code {
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+  font-size: 0.97em;
+  background: #eaf1fb;
+  border-radius: 3px;
+  padding: 0 3px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 32px;
+}
+
+/* Unified green styled file input for per-file physical printer ini/json */
+.perfile-physical-input {
+  display: inline-block;
+  width: auto;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 2px dashed #43a047;
+  background: #f3fdf7;
+  color: #234;
+  font-size: 1em;
+  margin-left: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.perfile-physical-input:hover {
+  border-color: #2e7d32;
+  background: #e6fbe6;
+}
+.perfile-physical-label {
+  color: #2e7d32;
+  font-weight: 500;
+}
+.default-physical-printer-div input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 2px dashed #43a047;
+  background: #f3fdf7;
+  color: #234;
+  font-size: 1em;
+  margin-top: 4px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.default-physical-printer-div input[type="file"]:hover {
+  border-color: #2e7d32;
+  background: #e6fbe6;
+}
+.default-physical-printer-div label {
+  color: #2e7d32;
+  font-weight: 500;
+}
+.nozzle-size-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1em;
+  gap: 2px;
+}
+#file-drop-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  height: 100px;
+  background: #f7faff;
+  border: 2px dashed #1976d2;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #1976d2;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+/* File card and label unified style */
+#output .file-card,
+#file-list-card .file-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  min-height: 44px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px #0001;
+  margin-bottom: 12px;
+}
+#file-list-card .file-card label,
+#output .file-card label {
+  margin: 0 8px 0 0;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+/* Meta note styling */
+.meta-note {
+  max-width: 600px;
+  margin: 0 auto 12px auto;
+  display: flex;
+  align-items: flex-start;
+  background: #f3f7fd;
+  border: 1.5px solid #b6c6e3;
+  border-radius: 8px;
+  padding: 10px 14px 10px 10px;
+  font-size: 0.98em;
+  color: #234;
+  box-shadow: 0 1px 4px #0001;
+}
+.meta-note-icon {
+  font-size: 1.25em;
+  color: #1976d2;
+  margin-right: 10px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.meta-note-content ul {
+  margin: 4px 0 0 0;
+  padding-left: 16px;
+  text-align: left;
+}
+.meta-note-content ul li {
+  margin-bottom: 2px;
+  line-height: 1.25;
+  font-size: 0.8em;
+}
+.meta-note-content code {
+  background: #eaf1fb;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 0.97em;
+}
+
+#output .file-card .file-remove-btn,
+#output .file-card .file-remove-btn:active,
+#output .file-card .file-remove-btn:focus,
+#output .file-card .file-remove-btn:hover,
+#file-list-card .file-card .file-remove-btn,
+#file-list-card .file-card .file-remove-btn:active,
+#file-list-card .file-card .file-remove-btn:focus,
+#file-list-card .file-card .file-remove-btn:hover {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: none !important;
+  border: none !important;
+  color: #d32f2f !important;
+  font-size: 1em !important;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0 !important;
+  line-height: 1;
+  box-shadow: none !important;
+}
+#output .file-card .file-remove-btn:hover,
+#file-list-card .file-card .file-remove-btn:hover {
+  color: #b71c1c !important;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 32px;
+}
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+h3 {
+  text-align: center;
+  color: #2c3e50;
+}
+form label {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+}
+form input, form select, form button:not(.file-remove-btn) {
+  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+form button:not(.file-remove-btn) {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 24px;
+}
+form button:hover:not(.file-remove-btn) {
+  background: #217dbb;
+}
+#output {
+  margin-top: 32px;
+  padding: 16px;
+  background: none;
+  border-radius: 4px;
+  min-height: 0px;
+}
